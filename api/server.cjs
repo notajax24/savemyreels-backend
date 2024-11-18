@@ -11,6 +11,13 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: ["http://savemyreels.vercel.app", "http://localhost:5173"], // Allow this origin
+    methods: "GET, POST", // Allow these HTTP methods
+    allowedHeaders: "Content-Type, Authorization", // Allow these headers
+  })
+);
 // Function to extract Instagram post ID from URL
 const getId = (url) => {
   const regex =
@@ -35,6 +42,7 @@ const getInstagramGraphqlData = async (url) => {
     const response = await fetch(graphqlUrl, {
       method: "POST",
       headers: {
+        origin: "http://localhost:5173",
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
         "Content-Type": "application/x-www-form-urlencoded",
@@ -77,7 +85,7 @@ const getInstagramGraphqlData = async (url) => {
 
     // Return the path or download URL
     return {
-      videoUrl: `http://localhost:${PORT}/downloads/${videoFileName}`,
+      videoUrl: `http://savemyreels.vercel.app:${PORT}/downloads/${videoFileName}`,
       thumbnail: items.thumbnail_src,
     };
 
