@@ -50,8 +50,7 @@ const getInstagramGraphqlData = async (url) => {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
         "Content-Type": "application/x-www-form-urlencoded",
-        "X-IG-App-ID": `${process.env.X_IG_APP_ID}`,
-
+        "X-IG-App-ID": "936619743392459",
         "X-FB-LSD": "AVqbxe3J_YA",
         "X-ASBD-ID": "129477",
         "Sec-Fetch-Site": "same-origin",
