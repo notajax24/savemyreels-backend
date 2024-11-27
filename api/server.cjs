@@ -43,7 +43,7 @@ const getInstagramGraphqlData = async (url) => {
     const response = await fetch(graphqlUrl, {
       cors: [
         "http://localhost:5000",
-        "https://savemyreeels.vercel.app, https://insta-video-downloader-backend.vercel.app:5000",
+        "https://savemyreeels.vercel.app, https://savemyreels-backend.onrender.com",
       ],
       method: "POST",
       headers: {
@@ -131,5 +131,7 @@ app.get("/api/download", async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(
+    `Server is running on https://savemyreels-backend.onrender.com:${PORT}`
+  );
 });
