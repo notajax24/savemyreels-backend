@@ -18,6 +18,14 @@ cloudinary.config({
 // Middleware
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON requests
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "https://savemyreels-frontend.onrender.com",
+    methods: ["GET", "POST", "OPTIONS"], // Specify allowed methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow requests from this origin
+  })
+);
 
 // Function to extract Instagram post ID from URL
 const getId = (url) => {
