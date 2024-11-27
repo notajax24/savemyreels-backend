@@ -16,7 +16,7 @@ cloudinary.config({
 });
 
 // Middleware
-app.use(cors()); // Enable CORS
+// Enable CORS
 app.use(express.json()); // Parse JSON requests
 const cors = require("cors");
 app.use(
